@@ -11,7 +11,7 @@
 | 文件 | 说明 |
 |---|---|
 | `zh_CN.json` | 翻译字典（英文 → 中文映射） |
-| `install_zh_CN.py` | Python 汉化脚本（推荐，跨平台） |
+| `install_zh_CN.py` | Python 汉化脚本|
 | `TRANSLATION_GUIDE.md` | 翻译词条编写规则（维护者参考） |
 
 ## 快速开始
@@ -22,7 +22,7 @@
 cd /path/to/Caelestia/assets/translations
 python3 install_zh_CN.py
 ```
-
+#### 脚本和Json文件需要在同目录下
 如果不存在用户配置`~/.config/quickshell/caelestia`，脚本会自动从 `/etc/xdg/quickshell/Caelestia` 复制到 `~/.config/quickshell/caelestia` 并汉化。完成后重启 Caelestia Shell 即可生效。
 
 ### 指定源目录
@@ -48,7 +48,7 @@ python install_zh_CN.py ..\.. .\test_output
 
 ### 在原有目录配置进行汉化
 
-选择此选项时，请确保用户配置的目录结构和官方配置相同。
+选择此选项时，请确保用户配置的目录结构和官方相同。
 
 ### 重新复制会清空用户配置
 
@@ -60,7 +60,7 @@ python install_zh_CN.py ..\.. .\test_output
 
 ### 源文件不会被修改
 
-脚本只修改输出目录（用户配置目录）中的副本，不会动 `/etc/xdg/quickshell/Caelestia` 下的系统源文件。
+脚本只修改输出目录（用户配置目录）中的副本，不会修改 `/etc/xdg/quickshell/Caelestia` 下的源文件。
 
 ### 依赖
 
@@ -91,7 +91,7 @@ python install_zh_CN.py ..\.. .\test_output
 3. 英文原文与 QML 源码完全一致（包括空格、大小写、特殊字符）
 4. 保留 `%1`、`%2` 等占位符不翻译
 
-提交前可用以下命令验证 JSON 格式：
+可用以下命令验证 JSON 格式：
 
 ```bash
 python3 -m json.tool zh_CN.json > /dev/null && echo "JSON OK"
