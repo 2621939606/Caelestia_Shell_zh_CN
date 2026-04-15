@@ -1,6 +1,6 @@
 # Caelestia Shell 简体中文汉化
 
-将 [Caelestia Shell](https://github.com/end-4/dots-hyprland) 界面从英文替换为简体中文。
+将 [Caelestia Shell](https://github.com/caelestia-dots/caelestia) 界面从英文替换为简体中文。
 
 ## 原理
 
@@ -12,7 +12,6 @@
 |---|---|
 | `zh_CN.json` | 翻译字典（英文 → 中文映射） |
 | `install_zh_CN.py` | Python 汉化脚本（推荐，跨平台） |
-| `install_Caelestia_zh_CN.sh` | Bash 汉化脚本（需要 `jq`） |
 | `TRANSLATION_GUIDE.md` | 翻译词条编写规则（维护者参考） |
 
 ## 快速开始
