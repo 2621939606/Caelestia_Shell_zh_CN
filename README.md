@@ -22,7 +22,7 @@
 cd /path/to/Caelestia/assets/translations
 python3 install_zh_CN.py
 ```
-#### 脚本和Json文件需要在同目录下
+#### 运行脚本时请确保JSON文件和脚本在同一目录下
 如果不存在用户配置`~/.config/quickshell/caelestia`，脚本会自动从 `/etc/xdg/quickshell/Caelestia` 复制到 `~/.config/quickshell/caelestia` 并汉化。完成后重启 Caelestia Shell 即可生效。
 
 ### 指定源目录
