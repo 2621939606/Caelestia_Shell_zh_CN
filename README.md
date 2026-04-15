@@ -10,7 +10,7 @@
 
 | 文件 | 说明 |
 |---|---|
-| `zh_CN.json` | 翻译字典（英文 → 中文映射） |
+| `zh_CN.json` | 翻译字典 |
 | `install_zh_CN.py` | Python 汉化脚本|
 | `TRANSLATION_GUIDE.md` | 翻译词条编写规则（维护者参考） |
 
