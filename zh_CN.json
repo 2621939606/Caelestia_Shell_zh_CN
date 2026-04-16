@@ -1061,7 +1061,21 @@
         "Log out of the current session": "注销当前会话",
         "Lock the current session": "锁定当前会话",
         "Suspend then hibernate": "挂起后休眠",
-        "Configure the shell": "配置 Shell"
+        "Configure the shell": "配置 Shell",
+        "Calculator": "计算器",
+        "Scheme": "配色方案",
+        "Wallpaper": "壁纸",
+        "Variant": "配色变体",
+        "Transparency": "透明度",
+        "Random": "随机壁纸",
+        "Light": "浅色模式",
+        "Dark": "深色模式",
+        "Shutdown": "关机",
+        "Reboot": "重启",
+        "Logout": "注销",
+        "Lock": "锁定",
+        "Sleep": "睡眠",
+        "Settings": "设置"
     },
 
     "_comment_Shortcuts": "全局快捷键描述 → modules/Shortcuts.qml",

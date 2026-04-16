@@ -15,6 +15,12 @@ PROJECT_ROOT = os.path.normpath(os.path.join(SCRIPT_DIR, "..", ".."))
 LINUX_SOURCE = "/etc/xdg/quickshell/caelestia"
 LINUX_TARGET = os.path.expanduser("~/.config/quickshell/caelestia")
 
+# 支持的属性列表（包括 name）
+SUPPORTED_PROPS = [
+    "label", "description", "text", "title",
+    "summary", "placeholderText", "toolTip", "name"
+]
+
 def to_qml_literal(s):
     s = s.replace("\\", "\\\\")
     s = s.replace('"', '\\"')
@@ -213,7 +219,8 @@ def main():
                 old = f'qsTr("{src_esc}")'
                 new = f'qsTr("{trans_esc}")'
                 if old in content:
-                    file_subs += content.count(old)
+                    count = content.count(old)
+                    file_subs += count
                     content = content.replace(old, new)
                     matched = True
 
@@ -222,21 +229,69 @@ def main():
                     old = f"qsTr(`{src}`)"
                     new = f"qsTr(`{trans}`)"
                     if old in content:
-                        file_subs += content.count(old)
+                        count = content.count(old)
+                        file_subs += count
                         content = content.replace(old, new)
                         matched = True
 
-                # 模式3: 裸字符串属性 (label/description/text 等)
+                # 模式3: 裸字符串属性 (支持 name/label/description/text 等)
                 if not matched:
-                    for prop in ("label", "description", "text", "title",
-                                 "summary", "placeholderText", "toolTip"):
+                    for prop in SUPPORTED_PROPS:
+                        # 匹配 prop: "value" 格式
                         old = f'{prop}: "{src_esc}"'
                         new = f'{prop}: "{trans_esc}"'
                         if old in content:
-                            file_subs += content.count(old)
+                            count = content.count(old)
+                            file_subs += count
                             content = content.replace(old, new)
                             matched = True
                             break
+                        
+                        # 匹配 prop: 'value' 格式（单引号）
+                        old_single = f"{prop}: '{src}'"
+                        new_single = f"{prop}: '{trans}'"
+                        if old_single in content:
+                            count = content.count(old_single)
+                            file_subs += count
+                            content = content.replace(old_single, new_single)
+                            matched = True
+                            break
+
+                # 模式4: JSON 中的 name 字段（启动器配置专用）
+                # 匹配格式: "name": "Calculator" 或 name: "Calculator"
+                if not matched:
+                    patterns = [
+                        (f'"{src}"', f'"{trans}"'),      # "name": "Calculator"
+                        (f"'{src}'", f"'{trans}'"),      # 'name': 'Calculator'
+                        (f': {src}', f': {trans}'),      # 无引号的情况
+                    ]
+                    for old, new in patterns:
+                        if old in content:
+                            # 确保是 name 字段的值
+                            # 简单检查前面是否有 name 或 "name"
+                            if re.search(rf'name\s*:\s*{re.escape(old)}', content):
+                                count = content.count(old)
+                                file_subs += count
+                                content = content.replace(old, new)
+                                matched = True
+                                break
+
+                # 模式5: 直接匹配不带属性名的字符串（兜底）
+                if not matched:
+                    # 只匹配行首或冒号后的独立字符串
+                    patterns = [
+                        (f'"{src_esc}"', f'"{trans_esc}"'),
+                        (f"'{src}'", f"'{trans}'"),
+                    ]
+                    for old, new in patterns:
+                        if old in content:
+                            # 确保不是其他单词的一部分
+                            if re.search(rf'[:=]\s*{re.escape(old)}', content):
+                                count = content.count(old)
+                                file_subs += count
+                                content = content.replace(old, new)
+                                matched = True
+                                break
 
                 if matched:
                     matched_entries.add(entry_key)
@@ -293,4 +348,4 @@ def main():
 
 
 if __name__ == "__main__":
-    sys.exit(main())
+    main()
