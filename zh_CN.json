@@ -586,26 +586,15 @@
         "Float window": "悬浮窗口"
     },
 
-    "_comment_Config": "配置加载/保存 → config/Config.qml",
-    "Config": {
-        "Failed to serialize config": "配置序列化失败",
+    "_comment_ConfigToasts": "配置加载/保存提示 → modules/ConfigToasts.qml",
+    "ConfigToasts": {
         "Config loaded": "配置已加载",
-        "Config loaded in %1ms": "配置已在 %1 毫秒内加载",
-        "Config saved": "配置已保存",
-        "Config reloaded in %1ms": "配置已在 %1 毫秒内重新加载",
-        "Failed to load config": "配置加载失败",
-        "Failed to read config file": "读取配置文件失败",
-        "Failed to save config": "保存配置失败"
-    },
-
-    "_comment_GeneralConfig": "电池低电量警告 → config/GeneralConfig.qml",
-    "GeneralConfig": {
-        "Low battery": "电量偏低",
-        "You might want to plug in a charger": "建议连接充电器",
-        "Did you see the previous message?": "你看到上一条提示了吗？",
-        "You should probably plug in a charger <b>now</b>": "你现在真的应该插上充电器了<b>马上</b>",
-        "Critical battery level": "电量严重不足",
-        "PLUG THE CHARGER RIGHT NOW!!": "立刻插上充电器！！"
+        "Config loaded successfully!": "配置加载成功！",
+        "Failed to parse config%1": "解析配置失败%1",
+        "Failed to save config%1": "保存配置失败%1",
+        "Unknown option in%1 config": "%1 配置中有未知选项",
+        "Failed to parse token config%1": "解析令牌配置失败%1",
+        "Unknown option in%1 token config": "%1 令牌配置中有未知选项"
     },
 
     "_comment_Hypr": "键盘锁定/布局提示 → services/Hypr.qml",
@@ -1046,37 +1035,7 @@
         "\"%1\" selected": "已选择'%1'"
     },
 
-    "_comment_LauncherConfig": "启动器操作配置 → config/LauncherConfig.qml",
-    "LauncherConfig": {
-        "Do simple math equations (powered by Qalc)": "简单数学计算（基于 Qalc）",
-        "Change the current colour scheme": "更改当前配色方案",
-        "Change the current wallpaper": "更改当前壁纸",
-        "Change the current scheme variant": "更改当前配色变体",
-        "Change shell transparency": "更改 Shell 透明度",
-        "Switch to a random wallpaper": "切换到随机壁纸",
-        "Change the scheme to light mode": "切换到浅色模式",
-        "Change the scheme to dark mode": "切换到深色模式",
-        "Shutdown the system": "关闭系统",
-        "Reboot the system": "重启系统",
-        "Log out of the current session": "注销当前会话",
-        "Lock the current session": "锁定当前会话",
-        "Suspend then hibernate": "挂起后休眠",
-        "Configure the shell": "配置 Shell",
-        "Calculator": "计算器",
-        "Scheme": "配色方案",
-        "Wallpaper": "壁纸",
-        "Variant": "配色变体",
-        "Transparency": "透明度",
-        "Random": "随机壁纸",
-        "Light": "浅色模式",
-        "Dark": "深色模式",
-        "Shutdown": "关机",
-        "Reboot": "重启",
-        "Logout": "注销",
-        "Lock": "锁定",
-        "Sleep": "睡眠",
-        "Settings": "设置"
-    },
+
 
     "_comment_Shortcuts": "全局快捷键描述 → modules/Shortcuts.qml",
     "Shortcuts": {
